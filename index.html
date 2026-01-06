@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIM Training Institute</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+body { font-family:'Arial', sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
+a { text-decoration:none; color:inherit; }
+
+/* Header Hero Placeholder */
+header {
+    background:#888; /* gray placeholder */
+    color:white; text-align:center; padding:120px 20px 80px; position:relative;
+}
+header h1, header p, .cta-button { position: relative; z-index:1; }
+header h1 { font-size:3em; margin-bottom:20px; }
+header p { font-size:1.2em; margin-bottom:30px; }
+.cta-button { background:#facc15; color:#1f2937; padding:15px 35px; font-weight:bold; border-radius:8px; transition:0.3s; }
+.cta-button:hover { background:#eab308; }
+
+/* Navigation */
+nav { background:#1f2937; position:sticky; top:0; z-index:1000; display:flex; justify-content:center; }
+nav a { color:white; padding:15px 25px; display:block; transition:background 0.3s; }
+nav a:hover { background:#374151; }
+
+section { padding:80px 20px; max-width:1200px; margin:auto; }
+section h2 { text-align:center; font-size:2.5em; margin-bottom:40px; color:#1f2937; }
+
+.courses-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+.course-card { background:white; border-radius:10px; padding:25px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s, background 0.3s; }
+.course-card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); background:#fef3c7; }
+.course-card h3 { margin-bottom:15px; color:#1f2937; }
+.course-card p { color:#555; font-size:1em; }
+
+.trainer-profile { display:flex; flex-wrap:wrap; align-items:center; gap:30px; justify-content:center; }
+.trainer-profile div.placeholder { width:300px; height:400px; background:#ddd; border-radius:10px; }
+.trainer-profile div.text { flex:1; max-width:600px; }
+
+.testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
+.testimonial-card { background:white; border-radius:10px; padding:25px; box-shadow:0 5px 15px rgba(0,0,0,0.1); font-style:italic; transition: transform 0.3s, box-shadow 0.3s; }
+.testimonial-card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+
+form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+input, textarea { padding:12px; border-radius:6px; border:1px solid #ccc; font-size:1em; }
+input[type="submit"] { background:#facc15; color:#1f2937; font-weight:bold; cursor:pointer; border:none; transition:0.3s; }
+input[type="submit"]:hover { background:#eab308; }
+
+footer { background:#1f2937; color:white; text-align:center; padding:30px 20px; }
+
+.fade-up { opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards; }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+@media(max-width:768px){ header h1{font-size:2.2em;} section{padding:60px 15px;} }
+</style>
+</head>
+<body>
+
+<header>
+    <h1 class="fade-up">BIM Training Institute</h1>
+    <p class="fade-up" style="animation-delay:0.2s;">Master BIM, Revit, Navisworks & Real-World Industry Practices</p>
+    <a href="#contact" class="cta-button fade-up" style="animation-delay:0.4s;">Enroll Now</a>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#why">Why Choose Us</a>
+    <a href="#trainer">Trainer</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2 class="fade-up">About Us</h2>
+    <p class="fade-up" style="animation-delay:0.2s;">
+        Our institute provides professional BIM education with hands-on training.
+        Led by an experienced BIM Specialist & Consultant, we prepare students and professionals to implement BIM in real projects.
+    </p>
+</section>
+
+<section id="courses">
+    <h2 class="fade-up">Our Courses</h2>
+    <div class="courses-grid">
+        <div class="course-card fade-up" style="animation-delay:0.1s;">
+            <h3>Revit Architecture</h3>
+            <p>From basics to advanced architectural modeling, including documentation and workflows.</p>
+        </div>
+        <div class="course-card fade-up" style="animation-delay:0.2s;">
+            <h3>Revit Structure</h3>
+            <p>Practical training for structural modeling, reinforcement, and collaboration with architects.</p>
+        </div>
+        <div class="course-card fade-up" style="animation-delay:0.3s;">
+            <h3>Revit MEP</h3>
+            <p>Learn mechanical, electrical, and plumbing systems modeling and coordination techniques.</p>
+        </div>
+        <div class="course-card fade-up" style="animation-delay:0.4s;">
+            <h3>Navisworks</h3>
+            <p>Clash detection, coordination, and project visualization for construction management.</p>
+        </div>
+        <div class="course-card fade-up" style="animation-delay:0.5s;">
+            <h3>BIM Fundamentals</h3>
+            <p>Understanding BIM standards, workflows, and industry best practices for professionals.</p>
+        </div>
+    </div>
+</section>
+
+<section id="why">
+    <h2 class="fade-up">Why Choose Us?</h2>
+    <ul class="fade-up" style="animation-delay:0.2s;">
+        <li>Expert-led training by certified BIM Specialist & Consultant</li>
+        <li>Hands-on exercises with real-world projects</li>
+        <li>Small batch sizes for personal attention</li>
+        <li>Access to Autodesk Education software</li>
+        <li>Guidance for BIM implementation in real projects</li>
+    </ul>
+</section>
+
+<section id="trainer">
+    <h2 class="fade-up">Meet Your Trainer</h2>
+    <div class="trainer-profile fade-up" style="animation-delay:0.2s;">
+        <div class="placeholder"></div>
+        <div class="text">
+            <p>[Your Name] is a BIM Specialist, Consultant & Trainer with extensive industry experience. They deliver practical skills and knowledge to students and professionals.</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2 class="fade-up">What Students Say</h2>
+    <div class="testimonials">
+        <div class="testimonial-card fade-up" style="animation-delay:0.1s;">"The training was practical & helped me understand BIM in real projects. – Student A"</div>
+        <div class="testimonial-card fade-up" style="animation-delay:0.2s;">"Excellent instructor with deep industry knowledge. – Student B"</div>
+        <div class="testimonial-card fade-up" style="animation-delay:0.3s;">"I could apply BIM skills immediately at my workplace. – Student C"</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="fade-up">Contact Us</h2>
+    <form class="fade-up" style="animation-delay:0.2s;">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <input type="submit" value="Send Message">
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 BIM Training Institute. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
