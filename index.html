@@ -1,186 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AD BIM Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
-body { font-family:'Poppins', sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
-a { text-decoration:none; color:inherit; }
-nav { background:#1f2937; position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:10px 30px; }
-nav img { height:50px; }
-nav .nav-links { display:flex; gap:15px; }
-nav a { color:white; padding:10px 15px; display:block; transition:background 0.3s; font-weight:600; border-radius:5px; }
-nav a:hover { background:#374151; }
-header { background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4431c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600') center/cover no-repeat; color:white; text-align:center; padding:140px 20px 100px; position:relative; }
-header::after { content:""; position:absolute; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.55); z-index:0; }
-header h1, header p, .cta-button { position:relative; z-index:1; }
-header h1 { font-size:3em; margin-bottom:15px; font-weight:700; }
-header p { font-size:1.3em; margin-bottom:30px; max-width:700px; margin:auto; }
-.cta-button { background:#facc15; color:#1f2937; padding:15px 35px; font-weight:bold; border-radius:8px; transition:0.3s; display:inline-block; }
-.cta-button:hover { background:#eab308; transform:scale(1.05); }
-section { padding:80px 20px; max-width:1200px; margin:auto; }
-section h2 { text-align:center; font-size:2.5em; margin-bottom:40px; color:#1f2937; }
-section p { max-width:800px; margin:auto; font-size:1.1em; color:#444; margin-bottom:20px; text-align:center; }
-.cards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
-.card { background:white; border-radius:10px; padding:25px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-align:center;}
-.card:hover { transform:translateY(-7px); box-shadow:0 12px 25px rgba(0,0,0,0.2); background:#fef3c7; }
-.card img { width:100%; border-radius:8px; margin-bottom:15px; height:150px; object-fit:cover; }
-.card h3 { margin-bottom:15px; color:#1f2937; }
-.card p { color:#555; font-size:1em; }
-.vision-mission { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
-.vision-mission .block { flex:1; min-width:250px; background:#fff9e5; padding:25px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; }
-.vision-mission h3 { color:#1f2937; margin-bottom:15px; }
-.vision-mission p { color:#444; }
-#why ul { list-style:none; max-width:700px; margin:auto; padding-left:0; }
-#why li::before { content:"✔"; color:#facc15; margin-right:10px; font-weight:bold; }
-#why li { margin-bottom:15px; font-size:1.1em; color:#444; }
-.testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:40px; }
-.testimonial-card { background:white; border-radius:10px; padding:25px; box-shadow:0 5px 15px rgba(0,0,0,0.1); font-style:italic; transition: transform 0.3s, box-shadow 0.3s; }
-.testimonial-card:hover { transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; margin-top:30px; }
-input, textarea { padding:12px; border-radius:6px; border:1px solid #ccc; font-size:1em; }
-input[type="submit"] { background:#facc15; color:#1f2937; font-weight:bold; cursor:pointer; border:none; transition:0.3s; }
-input[type="submit"]:hover { background:#eab308; transform:scale(1.03); }
-footer { background:#1f2937; color:white; text-align:center; padding:40px 20px; font-size:0.95em; display:flex; flex-direction:column; gap:10px; align-items:center; }
-footer a { color:#facc15; }
-#whatsapp { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:15px 18px; border-radius:50%; font-size:24px; z-index:999; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:transform 0.3s; }
-#whatsapp:hover { transform:scale(1.1); }
-.fade-up { opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards; }
-@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-@media(max-width:768px){ header h1{font-size:2.2em;} section{padding:60px 15px;} .vision-mission{flex-direction:column;} }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AD Academy of Innovation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      color: #0f172a;
+      line-height: 1.7;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #334155;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      color: #e5e7eb;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+
+    /* LIGHT SECTION */
+    .section-light {
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    /* SOFT GRAY SECTION */
+    .section-soft {
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    }
+
+    /* PROGRAM LISTS */
+    ul {
+      margin-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+
+    /* WHY CHOOSE US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .why-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    /* TRAINER */
+    .trainer-box {
+      background: linear-gradient(135deg, #e5e7eb, #f8fafc);
+      padding: 40px;
+      border-radius: 16px;
+    }
+
+    /* VISION & MISSION */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .vm-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    /* TESTIMONIALS */
+    blockquote {
+      background: #ffffff;
+      padding: 25px;
+      border-left: 5px solid #2563eb;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .contact p {
+      color: #e5e7eb;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 6%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- Navigation -->
-<nav>
-<img src="https://via.placeholder.com/150x50?text=AD+BIM+Logo" alt="AD BIM Academy Logo">
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#courses">Courses</a>
-<a href="#vision">Vision & Mission</a>
-<a href="#why">Why Choose Us</a>
-<a href="#testimonials">Testimonials</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>AD Academy of Innovation</h1>
+    <p>
+      Industry-Focused BIM Training for the Built Environment<br><br>
+      We train architects, engineers, and construction professionals to implement Building Information Modeling (BIM) the way it is used in real projects—through practical workflows, coordination strategies, and multidisciplinary collaboration.
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Enroll Now</a>
+      <a href="#contact" class="btn-secondary">Contact Us</a>
+    </div>
+  </section>
 
-<!-- Hero Section -->
-<header>
-<h1 class="fade-up">AD BIM Academy</h1>
-<p class="fade-up" style="animation-delay:0.2s;">Empowering professionals to master BIM workflows in Architecture, Structure, and MEP through hands-on, real-world training.</p>
-<a href="#contact" class="cta-button fade-up" style="animation-delay:0.4s;">Enroll Now</a>
-</header>
+  <!-- ABOUT -->
+  <section class="section-light">
+    <h2>About Us</h2>
+    <p>AD Academy of Innovation is a professional training institute dedicated to delivering practical, industry-relevant education in Building Information Modeling (BIM) for the Architecture, Engineering, and Construction (AEC) industry.</p>
+    <p>Our academy was founded with a clear purpose: to move beyond software-only training and focus on how BIM is actually implemented on real projects. We emphasize workflows, coordination processes, documentation standards, and collaborative project environments that reflect real-world practice.</p>
+    <p>At AD Academy of Innovation, learning is structured, progressive, and hands-on. Participants work through realistic project scenarios that mirror professional responsibilities across architectural, structural, and MEP disciplines.</p>
+    <p>Our programs are suitable for students, early-career professionals, and experienced practitioners who want a structured and practical pathway into professional BIM implementation.</p>
+  </section>
 
-<!-- About Us -->
-<section id="about">
-<h2 class="fade-up">About Us</h2>
-<p class="fade-up" style="animation-delay:0.2s;">AD BIM Academy is a leading professional training institute transforming the way architects, engineers, and construction professionals implement BIM. Our programs combine theory, practical exercises, and real project scenarios to provide hands-on experience from day one.</p>
-<p class="fade-up" style="animation-delay:0.3s;">We ensure every student confidently contributes to collaborative projects in Architecture, Structure, and MEP disciplines.</p>
-</section>
+  <!-- PROGRAM -->
+  <section class="section-soft">
+    <h2>BIM Professional Training Program</h2>
+    <p><strong>(Comprehensive Integrated Program)</strong></p>
+    <p>Our training is delivered as one complete BIM program, covering all key disciplines and coordination processes required in real projects.</p>
 
-<!-- Courses -->
-<section id="courses">
-<h2 class="fade-up">Courses</h2>
-<div class="cards-grid">
-<div class="card fade-up" style="animation-delay:0.1s;">
-<img src="https://images.unsplash.com/photo-1610184357340-6a9a92cf0e3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Revit Architecture">
-<h3>Revit Architecture</h3>
-<p>Master architectural modeling, visualization, and documentation for fully coordinated projects.</p>
-</div>
-<div class="card fade-up" style="animation-delay:0.2s;">
-<img src="https://images.unsplash.com/photo-1581092795365-3d1e37abff6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Revit Structure">
-<h3>Revit Structure</h3>
-<p>Model structural elements with precision, coordinate with architecture, and ensure error-free workflows.</p>
-</div>
-<div class="card fade-up" style="animation-delay:0.3s;">
-<img src="https://images.unsplash.com/photo-1598119232483-19fd9b13f872?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Revit MEP">
-<h3>Revit MEP</h3>
-<p>Develop mechanical, electrical, and plumbing systems with integrated clash detection and coordination.</p>
-</div>
-<div class="card fade-up" style="animation-delay:0.4s;">
-<img src="https://images.unsplash.com/photo-1619534113261-7aa6ed6bb2b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Navisworks">
-<h3>Navisworks</h3>
-<p>Perform project review, clash detection, and 4D simulations for optimized construction workflows.</p>
-</div>
-<div class="card fade-up" style="animation-delay:0.5s;">
-<img src="https://images.unsplash.com/photo-1581090700227-0b38f4183a9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="BIM Fundamentals">
-<h3>BIM Fundamentals</h3>
-<p>Learn BIM principles, standards, and collaboration methods for beginners or professionals seeking structured knowledge.</p>
-</div>
-</div>
-</section>
+    <h3>Architectural BIM</h3>
+    <ul>
+      <li>Architectural modeling using industry-standard workflows</li>
+      <li>Project setup, levels, grids, and worksharing concepts</li>
+      <li>Development of coordinated architectural models</li>
+      <li>Preparation of drawings, schedules, and documentation</li>
+      <li>Understanding model accuracy and design coordination</li>
+    </ul>
 
-<!-- Vision & Mission -->
-<section id="vision">
-<h2 class="fade-up">Vision & Mission</h2>
-<div class="vision-mission">
-<div class="block fade-up" style="animation-delay:0.2s;">
-<h3>Our Vision</h3>
-<img src="https://images.unsplash.com/photo-1581092333830-fd4dbdfbd0cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Vision" style="width:80px; margin-bottom:10px;">
-<p>Empowering professionals to leverage BIM for improved productivity, efficiency, and collaboration across all stages of construction.</p>
-</div>
-<div class="block fade-up" style="animation-delay:0.3s;">
-<h3>Our Mission</h3>
-<img src="https://images.unsplash.com/photo-1581091012184-d9f3cfd5b7a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Mission" style="width:80px; margin-bottom:10px;">
-<p>Bridge the gap between software knowledge and real-world application through hands-on, project-based BIM training.</p>
-</div>
-</div>
-</section>
+    <h3>Structural BIM</h3>
+    <ul>
+      <li>Modeling of structural systems including columns, beams, slabs, and foundations</li>
+      <li>Coordination between architectural and structural models</li>
+      <li>Structural documentation workflows</li>
+      <li>Maintaining model integrity during design changes</li>
+    </ul>
 
-<!-- Why Choose Us -->
-<section id="why">
-<h2 class="fade-up">Why Choose Us</h2>
-<ul class="fade-up" style="animation-delay:0.2s;">
-<li>Expert-led training by certified BIM specialist</li>
-<li>Hands-on learning with real-world projects</li>
-<li>Comprehensive curriculum: Architecture, Structure, MEP</li>
-<li>Small batches for personalized attention</li>
-<li>Career-focused training for professional success</li>
-</ul>
-</section>
+    <h3>MEP BIM</h3>
+    <ul>
+      <li>Mechanical, Electrical, and Plumbing system modeling</li>
+      <li>System-based design approach used in real projects</li>
+      <li>Integration and coordination with architecture and structure</li>
+      <li>Understanding MEP complexity in multidisciplinary environments</li>
+    </ul>
 
-<!-- Testimonials -->
-<section id="testimonials">
-<h2 class="fade-up">Testimonials</h2>
-<div class="testimonials">
-<div class="testimonial-card fade-up" style="animation-delay:0.1s;">
-“The hands-on approach helped me apply BIM workflows to real projects immediately. Guidance was precise and practical.” – Student A
-</div>
-<div class="testimonial-card fade-up" style="animation-delay:0.2s;">
-“I gained a deep understanding of Revit, Navisworks, and collaborative BIM processes. The training was intensive and structured.” – Student B
-</div>
-<div class="testimonial-card fade-up" style="animation-delay:0.3s;">
-“AD BIM Academy doesn’t just teach software—they teach how BIM works in real projects. Highly recommended.” – Student C
-</div>
-</div>
-</section>
+    <h3>BIM Coordination & Navisworks</h3>
+    <ul>
+      <li>Multidisciplinary model coordination</li>
+      <li>Clash detection principles and workflows</li>
+      <li>Model aggregation and project review</li>
+      <li>Understanding coordination responsibilities within project teams</li>
+    </ul>
+  </section>
 
-<!-- Contact -->
-<section id="contact">
-<h2 class="fade-up">Contact</h2>
-<p class="fade-up" style="animation-delay:0.1s; text-align:center;">Ready to elevate your BIM skills and enhance your professional career? Reach out to discuss course schedules, enrollment, and any questions you may have.</p>
-<form class="fade-up" style="animation-delay:0.2s;">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea placeholder="Message" rows="5" required></textarea>
-<input type="submit" value="Send Message">
-</form>
-</section>
+  <!-- TRAINING FORMATS -->
+  <section class="section-light">
+    <h2>Training Formats</h2>
+    <p><strong>Group Training Programs</strong><br>
+    Our main training sessions are conducted in structured group formats.</p>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/94771234567" target="_blank" id="whatsapp">💬</a>
+    <p><strong>Corporate & Customized Training</strong><br>
+    Customized training packages are available for companies based on project and organizational needs.</p>
+  </section>
 
-<!-- Footer -->
-<footer>
-<p>© 2026 AD BIM Academy. All Rights Reserved.</p>
-<p>Email: info@adbimacademy.com | Phone: +94 77 123 4567</p>
-<p>Follow us on <a href="#"><i class="fab fa-facebook-f"></i></a> | <a href="#"><i class="fab fa-linkedin-in"></i></a></p>
-</footer>
+  <!-- WHY CHOOSE US -->
+  <section class="section-soft">
+    <h2>Why Choose AD Academy of Innovation</h2>
+    <div class="why-grid">
+      <div class="why-card">Practice-oriented learning based on real project logic.</div>
+      <div class="why-card">Integrated multidisciplinary BIM perspective.</div>
+      <div class="why-card">Industry practitioner-led instruction.</div>
+      <div class="why-card">Structured and progressive learning approach.</div>
+      <div class="why-card">Professional readiness for real BIM teams.</div>
+    </div>
+  </section>
+
+  <!-- TRAINER -->
+  <section class="section-light">
+    <h2>Trainer</h2>
+    <div class="trainer-box">
+      <h3>Asanka Dharmarathna</h3>
+      <p><strong>BIM Specialist | Industry Practitioner | Trainer</strong></p>
+      <p>Asanka Dharmarathna is an experienced BIM Specialist and Trainer with a strong background in delivering BIM solutions for architectural, structural, and MEP projects.</p>
+      <p>His teaching approach is practical, structured, and workflow-driven, focusing on how BIM supports real decision-making and project delivery.</p>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section class="section-soft">
+    <h2>Vision & Mission</h2>
+    <div class="vm-grid">
+      <div class="vm-card">
+        <h3>Our Vision</h3>
+        <p>To develop competent BIM professionals who can contribute meaningfully to modern construction projects.</p>
+      </div>
+      <div class="vm-card">
+        <h3>Our Mission</h3>
+        <p>To provide practical, industry-aligned BIM education that bridges the gap between academic learning and real project implementation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-light">
+    <h2>Testimonials</h2>
+    <blockquote>“The training gave me a clear understanding of how BIM works in real projects.” — Participant</blockquote>
+    <blockquote>“The integrated approach to coordination was extremely valuable.” — Professional Trainee</blockquote>
+    <blockquote>“Well-structured and practical. Highly suitable for serious BIM learners.” — Graduate Engineer</blockquote>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Ready to strengthen your BIM skills and advance your professional capabilities?</p>
+    <p>
+      📧 Email: info@adacademyofinnovation.com<br>
+      📞 Phone / WhatsApp: +94 XX XXX XXXX<br>
+      📍 Sri Lanka (Group & Corporate Training Available)
+    </p>
+  </section>
+
+  <footer>
+    © 2026 AD Academy of Innovation. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
