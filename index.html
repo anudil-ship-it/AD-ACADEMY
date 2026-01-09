@@ -1,311 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AD Academy of Innovation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AD Academy of Innovation</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+<style>
+html { scroll-behavior: smooth; }
+body { margin:0; font-family:Segoe UI, Arial, sans-serif; color:#0f172a; }
 
-    body {
-      color: #0f172a;
-      line-height: 1.7;
-      background: #ffffff;
-    }
+nav{
+  position:fixed; top:0; width:100%;
+  background:#020617; padding:14px 8%;
+  display:flex; justify-content:space-between; align-items:center;
+  z-index:1000;
+}
+nav a{
+  color:#e5e7eb; text-decoration:none; margin-left:20px; font-size:14px;
+}
+nav a:hover{ color:#38bdf8; }
 
-    h1, h2, h3 {
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+.hero{
+  padding:140px 10% 100px;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:#fff; text-align:center;
+}
+.hero h1{ font-size:3rem; margin-bottom:20px; }
+.hero p{ max-width:900px; margin:auto; color:#cbd5f5; }
 
-    p {
-      margin-bottom: 16px;
-      color: #334155;
-    }
+section{ padding:80px 10%; }
+.section-soft{ background:#f1f5f9; }
 
-    section {
-      padding: 80px 10%;
-    }
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.why-card{
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
 
-    /* HERO */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      color: #ffffff;
-      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-    }
+footer{
+  background:#020617;
+  color:#94a3b8;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 900px;
-      margin: 0 auto 30px;
-      color: #e5e7eb;
-      font-size: 1.05rem;
-    }
-
-    .hero-buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: #ffffff;
-    }
-
-    .btn-secondary {
-      border: 2px solid #ffffff;
-      color: #ffffff;
-    }
-
-    /* LIGHT SECTION */
-    .section-light {
-      background: linear-gradient(180deg, #ffffff, #f8fafc);
-    }
-
-    /* SOFT GRAY SECTION */
-    .section-soft {
-      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    }
-
-    /* PROGRAM LISTS */
-    ul {
-      margin-left: 20px;
-      margin-bottom: 30px;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-      color: #334155;
-    }
-
-    /* WHY CHOOSE US */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .why-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }
-
-    /* TRAINER */
-    .trainer-box {
-      background: linear-gradient(135deg, #e5e7eb, #f8fafc);
-      padding: 40px;
-      border-radius: 16px;
-    }
-
-    /* VISION & MISSION */
-    .vm-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .vm-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }
-
-    /* TESTIMONIALS */
-    blockquote {
-      background: #ffffff;
-      padding: 25px;
-      border-left: 5px solid #2563eb;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    /* CONTACT */
-    .contact {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #ffffff;
-      text-align: center;
-    }
-
-    .contact p {
-      color: #e5e7eb;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 60px 6%;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>AD Academy of Innovation</h1>
-    <p>
-      Industry-Focused BIM Training for the Built Environment<br><br>
-      We train architects, engineers, and construction professionals to implement Building Information Modeling (BIM) the way it is used in real projects—through practical workflows, coordination strategies, and multidisciplinary collaboration.
-    </p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Enroll Now</a>
-      <a href="#contact" class="btn-secondary">Contact Us</a>
-    </div>
-  </section>
+<nav>
+  <strong style="color:#fff;">AD Academy of Innovation</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="program.html">Program</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+  </div>
+</nav>
 
-  <!-- ABOUT -->
-  <section class="section-light">
-    <h2>About Us</h2>
-    <p>AD Academy of Innovation is a professional training institute dedicated to delivering practical, industry-relevant education in Building Information Modeling (BIM) for the Architecture, Engineering, and Construction (AEC) industry.</p>
-    <p>Our academy was founded with a clear purpose: to move beyond software-only training and focus on how BIM is actually implemented on real projects. We emphasize workflows, coordination processes, documentation standards, and collaborative project environments that reflect real-world practice.</p>
-    <p>At AD Academy of Innovation, learning is structured, progressive, and hands-on. Participants work through realistic project scenarios that mirror professional responsibilities across architectural, structural, and MEP disciplines.</p>
-    <p>Our programs are suitable for students, early-career professionals, and experienced practitioners who want a structured and practical pathway into professional BIM implementation.</p>
-  </section>
+<section class="hero">
+  <h1>AD Academy of Innovation</h1>
+  <p>
+    Industry-Focused BIM Training for the Built Environment<br><br>
+    We train architects, engineers, and construction professionals to implement BIM the way it is used in real projects—through workflows, coordination, and collaboration.
+  </p>
+</section>
 
-  <!-- PROGRAM -->
-  <section class="section-soft">
-    <h2>BIM Professional Training Program</h2>
-    <p><strong>(Comprehensive Integrated Program)</strong></p>
-    <p>Our training is delivered as one complete BIM program, covering all key disciplines and coordination processes required in real projects.</p>
+<section>
+  <h2>About Us</h2>
+  <p>AD Academy of Innovation is a professional training institute delivering practical, industry-relevant BIM education for the AEC industry.</p>
+  <p>We move beyond software-only training and focus on real project implementation, coordination workflows, and documentation standards.</p>
+</section>
 
-    <h3>Architectural BIM</h3>
-    <ul>
-      <li>Architectural modeling using industry-standard workflows</li>
-      <li>Project setup, levels, grids, and worksharing concepts</li>
-      <li>Development of coordinated architectural models</li>
-      <li>Preparation of drawings, schedules, and documentation</li>
-      <li>Understanding model accuracy and design coordination</li>
-    </ul>
+<section class="section-soft">
+  <h2>Why Choose AD Academy of Innovation</h2>
+  <div class="why-grid">
+    <div class="why-card">Training based on real BIM project logic and workflows.</div>
+    <div class="why-card">Integrated Architecture, Structure, MEP & Coordination approach.</div>
+    <div class="why-card">Industry-experienced trainer with live project exposure.</div>
+    <div class="why-card">Structured learning path from fundamentals to coordination.</div>
+    <div class="why-card">Prepares learners to function confidently in real BIM teams.</div>
+  </div>
+</section>
 
-    <h3>Structural BIM</h3>
-    <ul>
-      <li>Modeling of structural systems including columns, beams, slabs, and foundations</li>
-      <li>Coordination between architectural and structural models</li>
-      <li>Structural documentation workflows</li>
-      <li>Maintaining model integrity during design changes</li>
-    </ul>
+<footer>
+  © 2026 AD Academy of Innovation |
+  <a href="https://facebook.com" style="color:#38bdf8;">Facebook</a>
+</footer>
 
-    <h3>MEP BIM</h3>
-    <ul>
-      <li>Mechanical, Electrical, and Plumbing system modeling</li>
-      <li>System-based design approach used in real projects</li>
-      <li>Integration and coordination with architecture and structure</li>
-      <li>Understanding MEP complexity in multidisciplinary environments</li>
-    </ul>
-
-    <h3>BIM Coordination & Navisworks</h3>
-    <ul>
-      <li>Multidisciplinary model coordination</li>
-      <li>Clash detection principles and workflows</li>
-      <li>Model aggregation and project review</li>
-      <li>Understanding coordination responsibilities within project teams</li>
-    </ul>
-  </section>
-
-  <!-- TRAINING FORMATS -->
-  <section class="section-light">
-    <h2>Training Formats</h2>
-    <p><strong>Group Training Programs</strong><br>
-    Our main training sessions are conducted in structured group formats.</p>
-
-    <p><strong>Corporate & Customized Training</strong><br>
-    Customized training packages are available for companies based on project and organizational needs.</p>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section class="section-soft">
-    <h2>Why Choose AD Academy of Innovation</h2>
-    <div class="why-grid">
-      <div class="why-card">Practice-oriented learning based on real project logic.</div>
-      <div class="why-card">Integrated multidisciplinary BIM perspective.</div>
-      <div class="why-card">Industry practitioner-led instruction.</div>
-      <div class="why-card">Structured and progressive learning approach.</div>
-      <div class="why-card">Professional readiness for real BIM teams.</div>
-    </div>
-  </section>
-
-  <!-- TRAINER -->
-  <section class="section-light">
-    <h2>Trainer</h2>
-    <div class="trainer-box">
-      <h3>Asanka Dharmarathna</h3>
-      <p><strong>BIM Specialist | Industry Practitioner | Trainer</strong></p>
-      <p>Asanka Dharmarathna is an experienced BIM Specialist and Trainer with a strong background in delivering BIM solutions for architectural, structural, and MEP projects.</p>
-      <p>His teaching approach is practical, structured, and workflow-driven, focusing on how BIM supports real decision-making and project delivery.</p>
-    </div>
-  </section>
-
-  <!-- VISION & MISSION -->
-  <section class="section-soft">
-    <h2>Vision & Mission</h2>
-    <div class="vm-grid">
-      <div class="vm-card">
-        <h3>Our Vision</h3>
-        <p>To develop competent BIM professionals who can contribute meaningfully to modern construction projects.</p>
-      </div>
-      <div class="vm-card">
-        <h3>Our Mission</h3>
-        <p>To provide practical, industry-aligned BIM education that bridges the gap between academic learning and real project implementation.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section-light">
-    <h2>Testimonials</h2>
-    <blockquote>“The training gave me a clear understanding of how BIM works in real projects.” — Participant</blockquote>
-    <blockquote>“The integrated approach to coordination was extremely valuable.” — Professional Trainee</blockquote>
-    <blockquote>“Well-structured and practical. Highly suitable for serious BIM learners.” — Graduate Engineer</blockquote>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to strengthen your BIM skills and advance your professional capabilities?</p>
-    <p>
-      📧 Email: info@adacademyofinnovation.com<br>
-      📞 Phone / WhatsApp: +94 XX XXX XXXX<br>
-      📍 Sri Lanka (Group & Corporate Training Available)
-    </p>
-  </section>
-
-  <footer>
-    © 2026 AD Academy of Innovation. All Rights Reserved.
-  </footer>
+<a class="whatsapp" href="https://wa.me/94XXXXXXXXX" target="_blank">
+  WhatsApp
+</a>
 
 </body>
 </html>
