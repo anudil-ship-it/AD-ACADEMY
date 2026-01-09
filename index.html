@@ -1,117 +1,895 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AD Academy of Innovation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AD Academy of Innovation | Professional BIM Training</title>
 
-<style>
-html { scroll-behavior: smooth; }
-body { margin:0; font-family:Segoe UI, Arial, sans-serif; color:#0f172a; }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
 
-nav{
-  position:fixed; top:0; width:100%;
-  background:#020617; padding:14px 8%;
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:1000;
-}
-nav a{
-  color:#e5e7eb; text-decoration:none; margin-left:20px; font-size:14px;
-}
-nav a:hover{ color:#38bdf8; }
+    body {
+      color: #0f172a;
+      line-height: 1.7;
+      background: #ffffff;
+      overflow-x: hidden;
+    }
 
-.hero{
-  padding:140px 10% 100px;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  color:#fff; text-align:center;
-}
-.hero h1{ font-size:3rem; margin-bottom:20px; }
-.hero p{ max-width:900px; margin:auto; color:#cbd5f5; }
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
 
-section{ padding:80px 10%; }
-.section-soft{ background:#f1f5f9; }
+    p {
+      margin-bottom: 16px;
+      color: #334155;
+    }
 
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.why-card{
-  background:#fff;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-}
+    section {
+      padding: 100px 10%;
+      position: relative;
+    }
 
-footer{
-  background:#020617;
-  color:#94a3b8;
-  text-align:center;
-  padding:25px;
-  font-size:14px;
-}
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
 
-.whatsapp{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 10px 20px rgba(0,0,0,.25);
-}
-</style>
+    nav.scrolled {
+      padding: 15px 10%;
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 1.3rem;
+      color: #60a5fa;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      color: #e5e7eb;
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      margin-top: 40px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-secondary {
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      color: #0f172a;
+      transform: translateY(-3px);
+    }
+
+    /* STATS SECTION */
+    .stats {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #ffffff;
+      text-align: center;
+      padding: 60px 10%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    /* SECTIONS */
+    .section-light {
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    .section-soft {
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      border-radius: 2px;
+    }
+
+    /* PROGRAM CARDS */
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .program-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid #2563eb;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .program-card h3 {
+      color: #2563eb;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      color: #475569;
+      line-height: 1.8;
+    }
+
+    /* WHY CHOOSE US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .why-card {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .why-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .why-card h3 {
+      color: #2563eb;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    /* TRAINER */
+    .trainer-box {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      border-left: 6px solid #2563eb;
+    }
+
+    .trainer-box h3 {
+      color: #2563eb;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    blockquote {
+      background: #ffffff;
+      padding: 35px;
+      border-left: 5px solid #2563eb;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      font-style: italic;
+      color: #475569;
+    }
+
+    blockquote:hover {
+      transform: translateX(5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .contact p {
+      color: #e5e7eb;
+      font-size: 1.1rem;
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      font-size: 1.2rem;
+    }
+
+    .contact-info p {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 10%;
+      background: #020617;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      margin: 30px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .social-links a {
+      color: #94a3b8;
+      font-size: 1.8rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.1);
+    }
+
+    .social-links a:hover {
+      color: #2563eb;
+      background: rgba(37, 99, 235, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* WHATSAPP FLOATING BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: #ffffff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    /* SCROLL TO TOP BUTTON */
+    #scrollTop {
+      position: fixed;
+      bottom: 110px;
+      right: 30px;
+      background: #2563eb;
+      color: #ffffff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
+      z-index: 998;
+    }
+
+    #scrollTop:hover {
+      background: #1d4ed8;
+      transform: translateY(-5px);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: rgba(15, 23, 42, 0.98);
+        width: 100%;
+        padding: 30px;
+        gap: 20px;
+        transition: left 0.3s ease;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .tagline {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      #scrollTop {
+        bottom: 90px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <strong style="color:#fff;">AD Academy of Innovation</strong>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="program.html">Program</a>
-    <a href="trainer.html">Trainer</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://facebook.com" target="_blank">Facebook</a>
-  </div>
-</nav>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="logo">AD Academy</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#program" onclick="closeMenu()">Programs</a></li>
+      <li><a href="#why" onclick="closeMenu()">Why Us</a></li>
+      <li><a href="#trainer" onclick="closeMenu()">Trainer</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
 
-<section class="hero">
-  <h1>AD Academy of Innovation</h1>
-  <p>
-    Industry-Focused BIM Training for the Built Environment<br><br>
-    We train architects, engineers, and construction professionals to implement BIM the way it is used in real projects—through workflows, coordination, and collaboration.
-  </p>
-</section>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="tagline">Industry-Focused BIM Training for the Built Environment</div>
+      <h1>AD Academy of Innovation</h1>
+      <p>
+        We train architects, engineers, and construction professionals to implement Building Information Modeling (BIM) the way it is used in real projects—through practical workflows, coordination strategies, and multidisciplinary collaboration.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://forms.google.com/your-form-link" target="_blank" class="btn-primary">Enroll Now</a>
+        <a href="#contact" class="btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>About Us</h2>
-  <p>AD Academy of Innovation is a professional training institute delivering practical, industry-relevant BIM education for the AEC industry.</p>
-  <p>We move beyond software-only training and focus on real project implementation, coordination workflows, and documentation standards.</p>
-</section>
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Trained Professionals</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">BIM Disciplines</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Practical Training</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </section>
 
-<section class="section-soft">
-  <h2>Why Choose AD Academy of Innovation</h2>
-  <div class="why-grid">
-    <div class="why-card">Training based on real BIM project logic and workflows.</div>
-    <div class="why-card">Integrated Architecture, Structure, MEP & Coordination approach.</div>
-    <div class="why-card">Industry-experienced trainer with live project exposure.</div>
-    <div class="why-card">Structured learning path from fundamentals to coordination.</div>
-    <div class="why-card">Prepares learners to function confidently in real BIM teams.</div>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section class="section-light" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>AD Academy of Innovation is a professional training institute dedicated to delivering practical, industry-relevant education in Building Information Modeling (BIM) for the Architecture, Engineering, and Construction (AEC) industry.</p>
+    <p>Our academy was founded with a clear purpose: to move beyond software-only training and focus on how BIM is actually implemented on real projects. We emphasize workflows, coordination processes, documentation standards, and collaborative project environments that reflect real-world practice.</p>
+    <p>At AD Academy of Innovation, learning is structured, progressive, and hands-on. Participants work through realistic project scenarios that mirror professional responsibilities across architectural, structural, and MEP disciplines. This approach ensures that learners not only understand BIM tools, but also develop the ability to apply BIM effectively within multidisciplinary teams.</p>
+    <p>Our programs are suitable for students, early-career professionals, and experienced practitioners who want a structured and practical pathway into professional BIM implementation.</p>
+  </section>
 
-<footer>
-  © 2026 AD Academy of Innovation |
-  <a href="https://facebook.com" style="color:#38bdf8;">Facebook</a>
-</footer>
+  <!-- PROGRAM -->
+  <section class="section-soft" id="program">
+    <h2 class="section-title">BIM Professional Training Program</h2>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 50px;"><strong>Comprehensive Integrated Program</strong><br>Our training is delivered as one complete BIM program, covering all key disciplines and coordination processes required in real projects. The program is structured to provide both discipline-specific depth and multidisciplinary understanding.</p>
 
-<a class="whatsapp" href="https://wa.me/94XXXXXXXXX" target="_blank">
-  WhatsApp
-</a>
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>Architectural BIM</h3>
+        <ul>
+          <li>Architectural modeling using industry-standard workflows</li>
+          <li>Project setup, levels, grids, and worksharing concepts</li>
+          <li>Development of coordinated architectural models</li>
+          <li>Preparation of drawings, schedules, and documentation</li>
+          <li>Understanding model accuracy and design coordination</li>
+        </ul>
+      </div>
+
+      <div class="program-card">
+        <h3>Structural BIM</h3>
+        <ul>
+          <li>Modeling of structural systems including columns, beams, slabs, and foundations</li>
+          <li>Coordination between architectural and structural models</li>
+          <li>Structural documentation workflows</li>
+          <li>Maintaining model integrity during design changes</li>
+        </ul>
+      </div>
+
+      <div class="program-card">
+        <h3>MEP BIM</h3>
+        <ul>
+          <li>Mechanical, Electrical, and Plumbing system modeling</li>
+          <li>System-based design approach used in real projects</li>
+          <li>Integration and coordination with architecture and structure</li>
+          <li>Understanding MEP complexity in multidisciplinary environments</li>
+        </ul>
+      </div>
+
+      <div class="program-card">
+        <h3>BIM Coordination & Clash Detection</h3>
+        <ul>
+          <li>Multidisciplinary model coordination</li>
+          <li>Clash detection principles and workflows</li>
+          <li>Identifying, managing, and resolving conflicts</li>
+          <li>Understanding coordination responsibilities within project teams</li>
+        </ul>
+      </div>
+
+      <div class="program-card">
+        <h3>Navisworks & Project Review</h3>
+        <ul>
+          <li>Model aggregation and review processes</li>
+          <li>Clash detection management</li>
+          <li>Construction sequence understanding (4D concepts)</li>
+          <li>Supporting coordination meetings and decision-making</li>
+        </ul>
+      </div>
+
+      <div class="program-card">
+        <h3>BIM Concepts & Project Workflows</h3>
+        <ul>
+          <li>BIM principles and industry practices</li>
+          <li>Information flow across project stages</li>
+          <li>Roles and responsibilities in BIM-enabled projects</li>
+          <li>Understanding how BIM supports construction delivery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING FORMATS -->
+  <section class="section-light">
+    <h2 class="section-title">Training Formats</h2>
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>Group Training Programs</h3>
+        <p>Our main training sessions are conducted in structured group formats, allowing participants to learn collaboratively while receiving guided instruction. These sessions follow a planned curriculum and are ideal for students and professionals seeking comprehensive BIM knowledge.</p>
+      </div>
+      <div class="program-card">
+        <h3>Corporate & Customized Training</h3>
+        <p>We also offer customized training packages for companies, tailored to organizational workflows, project requirements, and team skill levels. Corporate programs can be adjusted in terms of duration, depth, and focus areas to support real project needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section-soft" id="why">
+    <h2 class="section-title">Why Choose AD Academy of Innovation</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Practice-Oriented Learning</h3>
+        <p>Our training is built around real project logic. Participants learn how BIM is applied in professional environments rather than isolated software commands.</p>
+      </div>
+      <div class="why-card">
+        <h3>Multidisciplinary Perspective</h3>
+        <p>The program integrates Architecture, Structure, MEP, and Coordination into a single learning journey—reflecting how BIM operates in real construction projects.</p>
+      </div>
+      <div class="why-card">
+        <h3>Experienced Instruction</h3>
+        <p>Training is delivered by an industry practitioner with hands-on experience in live BIM projects, ensuring practical insight and realistic expectations.</p>
+      </div>
+      <div class="why-card">
+        <h3>Structured & Progressive Approach</h3>
+        <p>Concepts are introduced in a logical sequence, allowing learners to build confidence step by step—from fundamentals to coordination-level understanding.</p>
+      </div>
+      <div class="why-card">
+        <h3>Professional Readiness</h3>
+        <p>Participants leave the program with the ability to understand, interpret, and contribute to BIM workflows within real project teams.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINER -->
+  <section class="section-light" id="trainer">
+    <h2 class="section-title">Meet Your Trainer</h2>
+    <div class="trainer-box">
+      <h3>Asanka Dharmarathna</h3>
+      <p><strong>BIM Specialist | Industry Practitioner | Trainer</strong></p>
+      <p>Asanka Dharmarathna is an experienced BIM Specialist and Trainer with a strong background in delivering BIM solutions for architectural, structural, and MEP projects. His professional experience is rooted in real project environments where BIM is used for modeling, coordination, documentation, and multidisciplinary collaboration.</p>
+      <p>His teaching approach is practical, structured, and workflow-driven, focusing on how BIM supports real decision-making and project delivery. Rather than limiting training to software functions, Asanka emphasizes understanding responsibilities, coordination challenges, and professional standards encountered in live projects.</p>
+      <p>Through a clear and methodical teaching style, he helps learners develop confidence in applying BIM concepts within real-world construction contexts.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-soft">
+    <h2 class="section-title">What Our Students Say</h2>
+    <div class="testimonials-grid">
+      <blockquote>"The training gave me a clear understanding of how BIM works in real projects, not just how to use the software." <br><strong>— Participant</strong></blockquote>
+      <blockquote>"The integrated approach to Architecture, Structure, and MEP coordination was extremely valuable." <br><strong>— Professional Trainee</strong></blockquote>
+      <blockquote>"Well-structured and practical. Highly suitable for anyone serious about BIM implementation." <br><strong>— Graduate Engineer</strong></blockquote>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Get Started Today</h2>
+    <p>Ready to strengthen your BIM skills and advance your professional capabilities?</p>
+    <p>AD Academy of Innovation offers structured, practical BIM training aligned with real-world project requirements.</p>
+    <div class="contact-info">
+      <p>📧 info@adacademyofinnovation.com</p>
+      <p>📞 +94 XX XXX XXXX</p>
+      <p>📍 Sri Lanka (Group & Corporate Training Available)</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p><strong>AD Academy of Innovation</strong></p>
+      <p>Empowering AEC Professionals with Industry-Relevant BIM Training</p>
+      
+      <div class="social-links">
+        <a href="https://facebook.com/your-page" target="_blank" title="Facebook">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="mailto:info@adacademyofinnovation.com" title="Email">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </div>
+      
+      <p style="margin-top: 30px;">© 2026 AD Academy of Innovation. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/94XXXXXXXXX?text=Hello! I'm interested in BIM training at AD Academy" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scrollTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      const scrollTop = document.getElementById('scrollTop');
+      
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+        scrollTop.style.display = 'flex';
+      } else {
+        navbar.classList.remove('scrolled');
+        scrollTop.style.display = 'none';
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Animate on scroll
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stat-item, .program-card, .why-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 </html>
